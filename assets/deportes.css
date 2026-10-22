@@ -31,7 +31,7 @@
 /* anillo de partículas alrededor del balón (fútbol y béisbol) */
 .t-aura .hero.escena .fx{display:block}
 .t-aura .hero.escena .fx>div{position:absolute;right:2%;top:50%;transform:translateY(-50%);width:min(640px,54vw);aspect-ratio:1;display:block}
-.pelota.centro{right:calc(2% + min(640px,54vw)/2 - min(150px,12.5vw));top:50%;bottom:auto;margin-top:calc(min(300px,25vw)/-2);width:min(300px,25vw)}
+.pelota.centro{right:8%;top:50%;bottom:auto;margin-top:calc(min(360px,30vw)/-2);width:min(360px,30vw)}
 
 /* fútbol */
 .f-futbol{background:repeating-linear-gradient(90deg,#1b7f39 0 8.333%,#25984a 8.333% 16.666%)}
@@ -143,3 +143,4 @@
 .d-basquetbol .pelota{width:clamp(110px,14vw,200px);right:3.5%;bottom:7%}
 .d-basquetbol .aro{width:clamp(110px,12vw,170px);right:3.5%;top:11%}
 .d-basquetbol .lineas{padding:72px 14px 20px}
+.hero:has(.d-basquetbol) .halo{display:none}
