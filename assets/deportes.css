@@ -48,7 +48,8 @@
 .marcador small{font-size:.8rem;letter-spacing:.14em;color:#9a9a9a;text-shadow:none}.marcador i{font-style:normal;opacity:.7}
 
 /* basquetbol */
-.f-basquet{background:repeating-linear-gradient(90deg,#d08e48 0 6.25%,#bb7b3a 6.25% 12.5%)}
+.f-basquet{background:none}.f-basquet::after{display:none}
+.f-basquet .lineas{opacity:1}
 .aro{position:absolute;right:max(7vw,20px);top:9%;width:clamp(150px,18vw,250px);aspect-ratio:1/1.15;z-index:4}
 .tablero-b{position:absolute;left:0;right:0;top:0;height:60%;background:rgba(255,255,255,.95);border:6px solid #ff7a1a;border-radius:8px;box-shadow:0 24px 40px -18px #000}
 .tablero-b::after{content:"";position:absolute;left:30%;right:30%;bottom:10%;height:38%;border:5px solid #ff7a1a}
@@ -139,3 +140,6 @@
 
 .hero.escena .sobre{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px)}
 .hero.escena .btn-o{color:#fff;border-color:rgba(255,255,255,.75);background:rgba(255,255,255,.08)}
+.d-basquetbol .pelota{width:clamp(110px,14vw,200px);right:3.5%;bottom:7%}
+.d-basquetbol .aro{width:clamp(110px,12vw,170px);right:3.5%;top:11%}
+.d-basquetbol .lineas{padding:72px 14px 20px}
