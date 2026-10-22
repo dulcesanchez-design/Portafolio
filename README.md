@@ -12,3 +12,7 @@ Contacto: WhatsApp +52 55 8563 7134
 ## Publicar
 Settings → Pages → Branch `main` / root.
 URL: https://dulcesanchez-design.github.io/portafolio/
+
+## Ejemplos de salud, belleza y escuelas deportivas
+
+20 páginas nuevas (una por giro, carpeta `<giro>/1/`) con 5 temas visuales (`assets/themes.css`: aura, clínico, cristal, mono, noche) y efectos en `assets/fx.js`. Las escuelas y ligas incluyen un panel de ejemplo (asistencia, rendimiento, cobranza y calendario) definido en `core.js` (`panel`). El contenido está en `assets/giros2.js`, generado con `tools/gen2.py`.

@@ -136,6 +136,50 @@
       const f = () => { $("#docs-l", el).innerHTML = N.docs[$("#docs-s", el).value].map(d => `<li><label><input type="checkbox"><span>${d}</span></label></li>`).join(""); };
       $("#docs-s", el).addEventListener("change", f); f();
     },
+    panel(el) {
+      el.classList.add("panel");
+      const P = N.panel, hash = (s, k) => { let h = 7 + k; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 9973; return h; };
+      const A = P.alumnos.map((n, i) => ({ n, cat: P.cats[i % P.cats.length], pres: hash(n, 1) % 5 !== 0, m: P.metricas.map((_, k) => 55 + hash(n, k + 2) % 42), asis: 70 + hash(n, 9) % 30, pago: ["Pagado", "Pagado", "Pendiente", "Pagado", "Vencido"][hash(n, 4) % 5], rec: false }));
+      const tabs = [["asis", "Asistencia"], ["rend", "Rendimiento"], ["cobro", "Cobranza"], ["cal", "Calendario"]];
+      let tab = "asis", cat = P.cats[0];
+      const ini = n => n.split(" ").map(x => x[0]).slice(0, 2).join("");
+      el.innerHTML = `<div class="p-tabs" role="tablist">${tabs.map(([k, t]) => `<button role="tab" data-t="${k}" aria-selected="${k === tab}">${t}</button>`).join("")}</div><div class="p-cuerpo" aria-live="polite"></div>`;
+      const body = $(".p-cuerpo", el);
+      const vistas = {
+        asis() {
+          const lista = A.filter(a => a.cat === cat), n = lista.filter(a => a.pres).length;
+          return `<div class="p-bar"><label>Categoría<select id="p-cat">${P.cats.map(c => `<option${c === cat ? " selected" : ""}>${c}</option>`).join("")}</select></label><div class="p-cont"><strong>${n}</strong> de ${lista.length} presentes</div></div>
+          <ul class="p-lista">${lista.map(a => `<li><span class="p-av">${ini(a.n)}</span><b>${a.n}</b><button class="p-sw ${a.pres ? "on" : ""}" data-n="${a.n}" aria-pressed="${a.pres}">${a.pres ? "Presente" : "Faltó"}</button></li>`).join("")}</ul>
+          <button class="btn" data-av="1">Avisar a los papás de quienes faltaron</button>`;
+        },
+        rend() {
+          return `<ul class="p-lista p-rend">${A.slice(0, 6).map(a => `<li><span class="p-av">${ini(a.n)}</span><div class="p-r"><b>${a.n}</b><small>${a.cat} · asistencia ${a.asis}%</small>${P.metricas.map((m, k) => `<div class="p-m"><span>${m}</span><i style="--v:${a.m[k]}%"></i><em>${a.m[k]}</em></div>`).join("")}</div><button class="btn btn-o chico" data-demo="Demo: aquí se enviaría el reporte de ${a.n} al WhatsApp de su papá.">Enviar reporte</button></li>`).join("")}</ul>`;
+        },
+        cobro() {
+          const pen = A.filter(a => a.pago !== "Pagado" && !a.rec), tot = pen.length * P.cuota;
+          return `<div class="p-bar"><div class="p-cont">Por cobrar este mes: <strong>${money(tot)}</strong> · ${pen.length} ${pen.length === 1 ? "pendiente" : "pendientes"}</div><button class="btn chico" data-rec="todos"${pen.length ? "" : " disabled"}>Recordar a todos</button></div>
+          <ul class="p-lista">${A.slice(0, 8).map(a => `<li><span class="p-av">${ini(a.n)}</span><b>${a.n}</b><span class="p-pill ${a.rec ? "rec" : a.pago.toLowerCase()}">${a.rec ? "Recordado" : a.pago}</span>${a.pago !== "Pagado" && !a.rec ? `<button class="btn btn-o chico" data-rec="${a.n}">Recordar</button>` : `<span class="p-monto">${money(P.cuota)}</span>`}</li>`).join("")}</ul>`;
+        },
+        cal() {
+          return `<div class="p-dos"><div><h4>${P.pt||"Próximos partidos"}</h4><ul class="p-cal">${P.partidos.map(p => `<li><span class="p-f"><b>${p[0]}</b>${p[1]}</span><span>${p[2]}<small>${p[3]}</small></span></li>`).join("")}</ul></div>
+          <div><h4>${P.tt||"Tabla de posiciones"}</h4><table class="p-tabla"><thead><tr>${(P.cols||["#","Equipo","PJ","Pts"]).map(c=>`<th>${c}</th>`).join("")}</tr></thead><tbody>${P.tabla.map((t, i) => `<tr class="${t[3] ? "yo" : ""}"><td>${i + 1}</td><td>${t[0]}</td><td>${t[1]}</td><td>${t[2]}</td></tr>`).join("")}</tbody></table></div></div>`;
+        }
+      };
+      const pinta = () => { body.innerHTML = vistas[tab](); $$(".p-tabs button", el).forEach(b => b.setAttribute("aria-selected", b.dataset.t === tab)); };
+      el.addEventListener("click", e => {
+        const t = e.target.closest("[data-t]"), sw = e.target.closest(".p-sw"), av = e.target.closest("[data-av]"), rc = e.target.closest("[data-rec]");
+        if (t) { tab = t.dataset.t; pinta(); }
+        else if (sw) { const a = A.find(x => x.n === sw.dataset.n); a.pres = !a.pres; pinta(); }
+        else if (av) { const f = A.filter(a => a.cat === cat && !a.pres).length; toast(f ? `Demo: se enviaría un aviso a ${f} ${f === 1 ? "papá" : "papás"} por WhatsApp.` : "Todos presentes, no hay a quién avisar."); }
+        else if (rc) { const k = rc.dataset.rec; const l = k === "todos" ? A.filter(a => a.pago !== "Pagado" && !a.rec) : A.filter(a => a.n === k); l.forEach(a => a.rec = true); toast(`Demo: se enviaría el recordatorio de pago a ${l.length} ${l.length === 1 ? "persona" : "personas"}.`); pinta(); }
+      });
+      el.addEventListener("change", e => { if (e.target.id === "p-cat") { cat = e.target.value; pinta(); } });
+      pinta();
+    },
+    calendario(el) {
+      el.classList.add("p-cal-solo");
+      el.innerHTML = `<ul class="p-cal">${N.panel.partidos.map(p => `<li><span class="p-f"><b>${p[0]}</b>${p[1]}</span><span>${p[2]}<small>${p[3]}</small></span></li>`).join("")}</ul>`;
+    },
     cartilla(el) {
       el.classList.add("cartilla");
       el.innerHTML = `<div class="cartilla-in">

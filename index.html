@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DS DigitalCode, portafolio de páginas web</title>
-<meta name="description" content="Ejemplos de páginas web para consultorios y negocios locales: nutrición, psicología, odontología, veterinaria, abogados, estéticas, barberías y tatuajes.">
+<meta name="description" content="Ejemplos de páginas web para consultorios y negocios locales: nutrición, psicología, odontología, veterinaria, abogados, estéticas, barberías, tatuajes, salud, belleza y escuelas deportivas.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/hub.css">
@@ -20,7 +20,7 @@
   <h1>Páginas web para consultorios y negocios de tu zona.</h1>
   <p>Elige tu giro y abre los ejemplos. Todas tienen agenda de citas, botón de WhatsApp, redes sociales y se ven bien en el celular. Cada una se adapta a tu nombre, tus colores y tu estilo.</p>
   <nav class="giros" aria-label="Giros">
-    <a href="#nutricion">Nutrición</a><a href="#psicologia">Psicología</a><a href="#odontologia">Odontología</a><a href="#veterinaria">Veterinaria</a><a href="#abogados">Abogados</a><a href="#esteticas">Estéticas</a><a href="#barberias">Barberías</a><a href="#tatuajes">Tatuajes</a>
+    <a href="#nutricion">Nutrición</a><a href="#psicologia">Psicología</a><a href="#odontologia">Odontología</a><a href="#veterinaria">Veterinaria</a><a href="#abogados">Abogados</a><a href="#esteticas">Estéticas</a><a href="#barberias">Barberías</a><a href="#tatuajes">Tatuajes</a><a href="#salud">Salud y bienestar</a><a href="#belleza">Belleza y cuidado personal</a><a href="#deportes">Escuelas y ligas deportivas</a>
   </nav>
 </section>
 
@@ -67,6 +67,18 @@
   <div class="giro-cab"><h2>Tatuajes</h2><p>Cotizador en línea y agenda de consultas de diseño.</p></div>
   <div class="ejemplos" data-giro="tatuajes"></div>
 </section>
+<section class="giro" id="salud">
+  <div class="giro-cab"><h2>Salud y bienestar</h2><p>Fisioterapia, ópticas, spas, pediatras, laboratorios, gimnasios y terapia de lenguaje.</p></div>
+  <div class="ejemplos" data-grupo="salud"></div>
+</section>
+<section class="giro" id="belleza">
+  <div class="giro-cab"><h2>Belleza y cuidado personal</h2><p>Uñas, pestañas, maquillistas y depilación.</p></div>
+  <div class="ejemplos" data-grupo="belleza"></div>
+</section>
+<section class="giro" id="deportes">
+  <div class="giro-cab"><h2>Escuelas y ligas deportivas</h2><p>Con panel de asistencia, rendimiento, calendario de torneos y cobranza a los papás.</p></div>
+  <div class="ejemplos" data-grupo="deportes"></div>
+</section>
 </main>
 
 <footer class="pie">
@@ -85,7 +97,16 @@ const LISTA = {
   tatuajes:[["Negro total","Oscuro y minimalista, con cotizador"],["Línea fina","Claro, delicado y minimalista"],["Color vibrante","Tradicional, con mucho color"]],
   veterinaria:[["Huellitas","Cálido y amigable, con cartilla digital"],["Aplicación","Se ve como app, con la cartilla en el celular"],["Urgencias","Contundente, con llamada directa"]]
 };
-document.querySelectorAll(".ejemplos").forEach(box=>{
+const GRUPOS = {"salud": [["fisioterapia", "Fisioterapia: Fisio Vital", "Claro y limpio, con tarjetas de color. Lista de qué llevar a tu cita"], ["opticas", "Ópticas: Óptica Visión Clara", "Cristal y colores suaves. Armador de paquete de lentes"], ["spa", "Spa: Spa Aurora", "Azul noche con halo luminoso. Armador de sesión"], ["pediatria", "Pediatría: Pediatría Cielo", "Cristal y colores suaves. Lista antes de la cita"], ["laboratorio", "Laboratorios: Laboratorio Vida", "Claro y limpio, con tarjetas de color. Preparación por estudio"], ["gimnasio", "Gimnasios: Forja Gym", "Oscuro con texto tipo código. Armador de plan"], ["lenguaje", "Terapia de lenguaje: Palabras que Crecen", "Cristal y colores suaves. Señales para consultar"]], "belleza": [["unas", "Uñas y manicure: Pinky Nails", "Cristal y colores suaves. Estilos y armador de cita"], ["pestanas", "Pestañas y cejas: Lash Atelier", "Negro con anillo de partículas. Estilos de mirada"], ["maquillista", "Maquillistas: Marlen Make Up", "Azul noche con halo luminoso. Paquetes para eventos"], ["depilacion", "Depilación y spa: Piel Suave", "Claro y limpio, con tarjetas de color. Armador de sesión"]], "deportes": [["futbol", "Escuelas de fútbol: Academia Halcones FC", "Negro con anillo de partículas. Panel: asistencia, rendimiento, cobranza y calendario"], ["liga", "Ligas de fútbol: Liga Valle Fut7", "Oscuro con texto tipo código. Panel: calendario, tabla y cobranza"], ["basquetbol", "Escuelas de basquetbol: Academia Leones Basket", "Azul noche con halo luminoso. Panel de la escuela"], ["natacion", "Escuelas de natación: Acuática Marlín", "Claro y limpio, con tarjetas de color. Panel de la escuela"], ["artesmarciales", "Artes marciales: Dojo Tigre", "Oscuro con texto tipo código. Panel con cintas y torneos"], ["gimnasia", "Gimnasia: Club Estrellas", "Cristal y colores suaves. Panel de la escuela"], ["beisbol", "Escuelas de béisbol: Academia Diablos Béisbol", "Negro con anillo de partículas. Panel de escuela y liga"], ["danza", "Danza y baile: Academia Ritmo", "Azul noche con halo luminoso. Panel del estudio"], ["ajedrez", "Escuelas de ajedrez: Club Jaque Mate", "Oscuro con texto tipo código. Panel con torneos y ranking"]]};
+document.querySelectorAll(".ejemplos[data-grupo]").forEach(box=>{
+  box.innerHTML=GRUPOS[box.dataset.grupo].map(e=>{
+    const url=e[0]+"/1/index.html";
+    return `<a class="ej" href="${url}">
+      <div class="marco"><iframe src="${url}" loading="lazy" tabindex="-1" title="Vista previa de ${e[1]}" aria-hidden="true"></iframe></div>
+      <div class="ej-txt"><h3>${e[1]}</h3><p>${e[2]}</p><span class="abrir">Abrir ejemplo</span></div></a>`;
+  }).join("");
+});
+document.querySelectorAll(".ejemplos[data-giro]").forEach(box=>{
   const g=box.dataset.giro;
   box.innerHTML=LISTA[g].map((e,i)=>{
     const url=g+"/"+(i+1)+"/index.html";
