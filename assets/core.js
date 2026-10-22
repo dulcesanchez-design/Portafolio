@@ -102,6 +102,40 @@
         <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}">${I.pin}<span>Cómo llegar</span></a>
         <a class="btn btn-o" href="#" data-demo="${DEMO.llamar}">${I.phone}<span>Llamar ${N.tel}</span></a>`;
     },
+    arma(el) {
+      el.classList.add("arma");
+      el.innerHTML = `<ul class="arma-lista">${N.servicios.map((s, i) => `<li><label><input type="checkbox" data-i="${i}"><span class="arma-t"><b>${s.nombre}</b><small>${s.duracion}</small></span><span class="arma-p">${money(s.precio)}</span></label></li>`).join("")}</ul>
+        <div class="arma-tot" aria-live="polite"><div><small>Tu visita</small><strong id="arma-total">${money(0)}</strong></div><p id="arma-n">Elige uno o más servicios.</p><a class="btn" href="#agenda" id="arma-go">Reservar</a></div>`;
+      const act = () => {
+        const sel = $$("input:checked", el).map(c => N.servicios[+c.dataset.i]);
+        $("#arma-total", el).textContent = money(sel.reduce((a, s) => a + s.precio, 0));
+        $("#arma-n", el).textContent = sel.length ? sel.map(s => s.nombre).join(" + ") : "Elige uno o más servicios.";
+        const sv = $('select[name="servicio"]'); if (sv && sel.length) sv.value = sel[0].nombre;
+      };
+      el.addEventListener("change", act); act();
+    },
+    cotiza(el) {
+      el.classList.add("cotiza");
+      const C = N.cotiza, op = (a, f) => a.map((x, i) => `<option value="${i}">${f(x)}</option>`).join("");
+      el.innerHTML = `<div class="cot-campos"><label>Tamaño<select id="cot-t">${op(C.tamanos, x => x[0])}</select></label><label>Zona del cuerpo<select id="cot-z">${op(C.zonas, x => x[0])}</select></label><label>Estilo<select id="cot-e">${op(C.estilos, x => x[0])}</select></label></div>
+        <div class="cot-res" aria-live="polite"><small>Precio aproximado</small><strong id="cot-r"></strong><p>La cifra final se confirma en tu consulta de diseño.</p><a class="btn" href="#agenda">Agendar consulta</a></div>`;
+      const f = () => {
+        const t = C.tamanos[+$("#cot-t", el).value], z = C.zonas[+$("#cot-z", el).value][1], e = C.estilos[+$("#cot-e", el).value][1], k = z * e;
+        $("#cot-r", el).textContent = money(Math.round(t[1] * k / 50) * 50) + " a " + money(Math.round(t[2] * k / 50) * 50);
+      };
+      el.addEventListener("change", f); f();
+    },
+    estilos(el) {
+      el.classList.add("estilos-lista");
+      el.innerHTML = N.estilos.map((e, i) => `<li style="--i:${i}"><span class="est-fig" aria-hidden="true"></span><b>${e[0]}</b><small>${e[1]}</small></li>`).join("");
+    },
+    docs(el) {
+      el.classList.add("docs");
+      const k = Object.keys(N.docs);
+      el.innerHTML = `<label class="docs-sel">¿Qué trámite necesitas?<select id="docs-s">${k.map(x => `<option>${x}</option>`).join("")}</select></label><ul class="docs-lista" id="docs-l"></ul><button type="button" class="btn btn-o" data-demo="Demo: aquí se enviaría la lista a tu WhatsApp.">Enviarme la lista por WhatsApp</button>`;
+      const f = () => { $("#docs-l", el).innerHTML = N.docs[$("#docs-s", el).value].map(d => `<li><label><input type="checkbox"><span>${d}</span></label></li>`).join(""); };
+      $("#docs-s", el).addEventListener("change", f); f();
+    },
     cartilla(el) {
       el.classList.add("cartilla");
       el.innerHTML = `<div class="cartilla-in">

@@ -1,0 +1,11 @@
+:root{--bg:linear-gradient(160deg,#f4ecff 0%,#ffe9e1 55%,#fff6ef 100%);--fg:#2b2140;--ac:#7c3aed;--ac-fg:#fff;--ac2:#fb923c;--card:rgba(255,255,255,.7);--linea:rgba(124,58,237,.18);--r:24px;--rb:999px;--fd:"Sora",system-ui,sans-serif;--ft:"Sora",system-ui,sans-serif}
+body{background:var(--bg) fixed;font-size:1rem}h1,h2{font-weight:700;letter-spacing:-.04em}h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:22px}
+.top{display:flex;justify-content:space-between;align-items:center;padding-block:20px}.marca{font-weight:800;font-size:1.3rem;text-decoration:none;background:linear-gradient(90deg,#7c3aed,#fb923c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero{position:relative;overflow:hidden}.hero-c{position:relative;z-index:1;padding-block:clamp(40px,8vw,110px)}
+.hero h1{font-size:clamp(2.8rem,7.5vw,6.4rem);line-height:.98;max-width:12ch;margin-bottom:22px}.hero h1 span{background:linear-gradient(90deg,#7c3aed,#fb923c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.entrada{font-size:1.15rem;max-width:44ch;margin-bottom:26px}
+.burbuja{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55}.b1{width:360px;height:360px;background:#c4b5fd;right:-80px;top:-60px}.b2{width:300px;height:300px;background:#fdba74;right:20%;bottom:-120px}
+.cristal{background:rgba(255,255,255,.55);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.8);border-radius:28px;padding:clamp(20px,4vw,40px);box-shadow:0 20px 50px rgba(124,58,237,.12)}
+.dos{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,60px)}.alt{background:rgba(255,255,255,.4)}
+.nota-chica{font-size:.85rem;opacity:.65;margin-top:14px}
+@media (max-width:900px){.dos,.hero-in,.cols{grid-template-columns:minmax(0,1fr)!important}.pasos-lista,.resenas-lista{grid-template-columns:minmax(0,1fr)}}

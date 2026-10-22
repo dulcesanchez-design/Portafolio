@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DS DigitalCode, portafolio de páginas web</title>
-<meta name="description" content="Ejemplos de páginas web para consultorios y negocios locales: nutrición, psicología, odontología y veterinaria.">
+<meta name="description" content="Ejemplos de páginas web para consultorios y negocios locales: nutrición, psicología, odontología, veterinaria, abogados, estéticas, barberías y tatuajes.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/hub.css">
@@ -20,7 +20,7 @@
   <h1>Páginas web para consultorios y negocios de tu zona.</h1>
   <p>Elige tu giro y abre los ejemplos. Todas tienen agenda de citas, botón de WhatsApp, redes sociales y se ven bien en el celular. Cada una se adapta a tu nombre, tus colores y tu estilo.</p>
   <nav class="giros" aria-label="Giros">
-    <a href="#nutricion">Nutrición</a><a href="#psicologia">Psicología</a><a href="#odontologia">Odontología</a><a href="#veterinaria">Veterinaria</a>
+    <a href="#nutricion">Nutrición</a><a href="#psicologia">Psicología</a><a href="#odontologia">Odontología</a><a href="#veterinaria">Veterinaria</a><a href="#abogados">Abogados</a><a href="#esteticas">Estéticas</a><a href="#barberias">Barberías</a><a href="#tatuajes">Tatuajes</a>
   </nav>
 </section>
 
@@ -51,6 +51,22 @@
   <div class="giro-cab"><h2>Veterinaria</h2><p>Citas, cartilla de vacunación y recetas en línea.</p></div>
   <div class="ejemplos" data-giro="veterinaria"></div>
 </section>
+<section class="giro" id="abogados">
+  <div class="giro-cab"><h2>Abogados</h2><p>Consultas en línea, lista de documentos y costos claros.</p></div>
+  <div class="ejemplos" data-giro="abogados"></div>
+</section>
+<section class="giro" id="esteticas">
+  <div class="giro-cab"><h2>Estéticas</h2><p>Arma tu visita, ve el total y reserva tu horario.</p></div>
+  <div class="ejemplos" data-giro="esteticas"></div>
+</section>
+<section class="giro" id="barberias">
+  <div class="giro-cab"><h2>Barberías</h2><p>Aparta tu lugar y evita la fila.</p></div>
+  <div class="ejemplos" data-giro="barberias"></div>
+</section>
+<section class="giro" id="tatuajes">
+  <div class="giro-cab"><h2>Tatuajes</h2><p>Cotizador en línea y agenda de consultas de diseño.</p></div>
+  <div class="ejemplos" data-giro="tatuajes"></div>
+</section>
 </main>
 
 <footer class="pie">
@@ -63,6 +79,10 @@ const LISTA = {
   nutricion:[["Cálido y fresco","Colores mango y verde, con un plato interactivo"],["Gomitas de fruta","Colorido y juguetón, para toda la familia"],["Aurora y cristal","Limpio y moderno, con agenda rápida"]],
   psicologia:[["Noche serena","Fondo oscuro con respiración guiada"],["Cristal","Cubo de cristal y colores suaves"],["Papel y hojas","Sobrio, tranquilo y cercano"]],
   odontologia:[["Cristal clínico","Aire limpio de clínica y control de sonrisa"],["Stickers","Alegre y atrevido, para toda la familia"],["Dorado oscuro","Elegante, para tratamientos especializados"]],
+  abogados:[["Clásico","Sobrio y elegante, azul marino y dorado"],["Claro y moderno","Lenguaje sencillo, con lista de documentos"],["Editorial","Blanco y negro, directo y contundente"]],
+  esteticas:[["Rosa elegante","Suave y delicado, con armador de visita"],["Cristal y color","Degradados modernos y cristal"],["Beauty bar","Atrevido, en fucsia y negro"]],
+  barberias:[["Tradicional","Poste de barbero, rojo y azul clásico"],["Fade moderno","Oscuro y neón, para clientes jóvenes"],["De barrio","Cálido y cercano, para toda la familia"]],
+  tatuajes:[["Negro total","Oscuro y minimalista, con cotizador"],["Línea fina","Claro, delicado y minimalista"],["Color vibrante","Tradicional, con mucho color"]],
   veterinaria:[["Huellitas","Cálido y amigable, con cartilla digital"],["Aplicación","Se ve como app, con la cartilla en el celular"],["Urgencias","Contundente, con llamada directa"]]
 };
 document.querySelectorAll(".ejemplos").forEach(box=>{

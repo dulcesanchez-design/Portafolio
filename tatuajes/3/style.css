@@ -1,0 +1,13 @@
+:root{--bg:#fff4e0;--fg:#1b1410;--ac:#d7263d;--ac-fg:#fff;--ac2:#0f8b8d;--card:#fffaf0;--linea:#1b1410;--r:12px;--rb:12px;--fd:"Rubik",system-ui,sans-serif;--ft:"Rubik",system-ui,sans-serif;--bb:3px solid #1b1410}
+h1,h2{font-weight:800;letter-spacing:-.03em}h2{font-size:clamp(2rem,4.8vw,3.4rem);margin-bottom:24px}
+.top{display:flex;justify-content:space-between;align-items:center;padding-block:18px}.marca{font:800 1.5rem var(--fd);text-decoration:none;color:var(--ac)}
+.hero{border-block:4px solid #1b1410;background:#0f8b8d;color:#fff}.hero-in{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding-block:clamp(36px,6vw,80px)}
+.hero h1{font-size:clamp(2.8rem,7vw,6rem);line-height:.95;margin-bottom:20px}.entrada{font-size:1.2rem;margin-bottom:24px}.hero .btn-o{color:#fff}
+.btn{box-shadow:4px 4px 0 #1b1410;font-weight:800}.hero .btn{background:#ffc93c;color:#1b1410}
+.gotas{position:relative;height:260px}.gotas span{position:absolute;padding:.6em 1.2em;border:3px solid #1b1410;border-radius:999px;box-shadow:4px 4px 0 #1b1410;font-weight:800;color:#1b1410;font-size:1.3rem}
+.g1{left:6%;top:8%;background:#ffc93c;transform:rotate(-8deg)}.g2{right:4%;top:36%;background:#ff8fa3;transform:rotate(6deg)}.g3{left:18%;bottom:6%;background:#fff;transform:rotate(-3deg)}
+.amarilla{background:#ffc93c;border-block:3px solid #1b1410}.verde{background:#bde8d6;border-block:3px solid #1b1410}
+.estilos-lista li,.cot-res,.cot-campos select{border:3px solid #1b1410;box-shadow:4px 4px 0 #1b1410}.est-fig{background:repeating-linear-gradient(calc(var(--i)*30deg),#d7263d 0 4px,transparent 4px calc(12px + var(--i)*3px)),#fffaf0;border:3px solid #1b1410}
+.resenas-lista figure{border:3px solid #1b1410;box-shadow:4px 4px 0 #1b1410}.pasos-lista li::before{border:3px solid #1b1410}
+.dos{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,60px)}.alt{background:#ffe3b0;border-block:3px solid #1b1410}.nota-chica{font-size:.85rem;opacity:.7;margin-top:14px}
+@media (max-width:900px){.dos,.hero-in,.cols{grid-template-columns:minmax(0,1fr)!important}.pasos-lista,.resenas-lista{grid-template-columns:minmax(0,1fr)}}

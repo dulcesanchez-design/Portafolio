@@ -1,6 +1,6 @@
 # Portafolio — DS DigitalCode
 
-Ejemplos de páginas web para consultorios y negocios locales (nutrición, psicología, odontología, veterinaria).
+Ejemplos de páginas web para consultorios y negocios locales (nutrición, psicología, odontología, veterinaria, abogados, estéticas, barberías, tatuajes).
 
 - Entrada única: `index.html` (el portafolio)
 - Cada ejemplo: `/<giro>/<n>/` (p. ej. `/psicologia/1/`)

@@ -1,0 +1,13 @@
+:root{--bg:#fffaf7;--fg:#3b2a2e;--ac:#c2677f;--ac-fg:#fff;--ac2:#f3c9d0;--card:#fff;--linea:rgba(194,103,127,.3);--r:22px;--rb:999px;--fd:"Cormorant Garamond",Georgia,serif;--ft:"Jost",system-ui,sans-serif}
+h1,h2{font-weight:600;letter-spacing:-.01em}h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin-bottom:26px}
+.top{display:flex;justify-content:space-between;align-items:center;padding-block:20px}.marca{font:700 1.8rem var(--fd);text-decoration:none;color:var(--ac)}
+.hero{background:linear-gradient(160deg,#fde4e8,#fffaf7 70%)}.hero-in{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding-block:clamp(30px,6vw,80px)}
+.sobre{text-transform:uppercase;letter-spacing:.22em;font-size:.8rem;color:var(--ac);margin-bottom:14px}
+.hero h1{font-size:clamp(2.8rem,6.4vw,5.2rem);line-height:.98;margin-bottom:20px}.entrada{font-size:1.15rem;margin-bottom:26px}
+.arco{aspect-ratio:3/4;max-width:340px;margin-inline:auto;width:100%;border-radius:999px 999px 24px 24px;background:radial-gradient(circle at 50% 30%,#f9d5db,#e49aab 70%);position:relative;overflow:hidden}
+.arco span{position:absolute;inset:auto 14% 12% 14%;height:46%;border-radius:999px 999px 0 0;background:rgba(255,255,255,.35)}
+.rosa{background:#fdeef0}.pasos-lista li::before{font-family:var(--fd);font-size:1.6rem}
+.dos{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,60px)}.alt{background:#fdeef0}
+.btn{letter-spacing:.03em}.nota-chica{font-size:.85rem;opacity:.65;margin-top:14px}
+.arma-lista label{background:#fff}.arma-tot{background:#fdeef0}
+@media (max-width:900px){.dos,.hero-in,.cols{grid-template-columns:minmax(0,1fr)!important}.pasos-lista,.resenas-lista{grid-template-columns:minmax(0,1fr)}}

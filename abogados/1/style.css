@@ -1,0 +1,19 @@
+:root{--bg:#fbf8f2;--fg:#14213d;--ac:#14213d;--ac-fg:#f6efe0;--ac2:#b8924a;--card:#fff;--linea:rgba(20,33,61,.2);--r:4px;--rb:4px;--fd:"Playfair Display",Georgia,serif;--ft:"Inter",system-ui,sans-serif}
+h1,h2{font-weight:700}h2{font-size:clamp(1.9rem,4.2vw,3rem);margin-bottom:26px}
+.top{display:flex;justify-content:space-between;align-items:center;padding-block:20px}.marca{font:700 1.5rem var(--fd);text-decoration:none}
+.hero{background:#14213d;color:#f6efe0}.hero-in{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center;padding-block:clamp(40px,7vw,90px)}
+.hero .top,.hero a{color:inherit}.hero .btn{background:#b8924a;color:#14213d}
+.sobre{text-transform:uppercase;letter-spacing:.2em;font-size:.8rem;color:#d6b673;margin-bottom:16px}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4.4rem);margin-bottom:20px}.entrada{font-size:1.15rem;margin-bottom:26px;opacity:.9}
+.sello{border:1px solid #b8924a;padding:30px;text-align:center;display:grid;gap:6px;outline:1px solid #b8924a;outline-offset:8px}
+.sello span{text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;color:#d6b673}.sello b{font:700 3.4rem var(--fd)}.sello small{opacity:.8}
+.crema{background:#f1ead9}.sub{margin:-12px 0 22px}
+.areas{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.areas li{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid var(--linea)!important;border-top:3px solid #b8924a!important;padding:24px}
+.areas .p{grid:none;text-align:left;margin-top:auto;padding-top:10px;font-size:1.5rem;color:#14213d}.areas .p small{display:inline;margin-left:8px}
+.pasos-lista li::before{border-radius:4px;background:#b8924a;color:#14213d}
+.alt{background:#f1ead9}.dos{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,60px)}
+.nota-chica{font-size:.85rem;opacity:.65;margin-top:14px}
+.btn{font-weight:600}.ag-form{border-radius:4px}
+@media (max-width:900px){.dos,.hero-in,.cols{grid-template-columns:minmax(0,1fr)!important}.pasos-lista,.resenas-lista{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){.areas{grid-template-columns:minmax(0,1fr)}}

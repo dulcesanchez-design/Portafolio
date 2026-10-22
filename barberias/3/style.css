@@ -1,0 +1,9 @@
+:root{--bg:#f7f1e6;--fg:#2d2118;--ac:#7a4a21;--ac-fg:#fff8ec;--ac2:#e9b44c;--card:#fffaf1;--linea:rgba(45,33,24,.25);--r:10px;--rb:10px;--fd:"Alfa Slab One",Georgia,serif;--ft:"Karla",system-ui,sans-serif}
+h1,h2{font-weight:400;letter-spacing:0}h2{font-size:clamp(1.9rem,4.2vw,3rem);margin-bottom:24px}
+.top{display:flex;justify-content:space-between;align-items:center;padding-block:18px}.marca{font:400 1.5rem var(--fd);text-decoration:none;color:var(--ac)}
+.hero{background:#e9b44c;border-block:4px solid #2d2118}.hero-in{display:grid;grid-template-columns:1.4fr .6fr;gap:30px;align-items:center;padding-block:clamp(36px,6vw,80px)}
+.hero h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:1;margin-bottom:18px}.entrada{font-size:1.2rem;margin-bottom:24px}.hero .btn{background:#2d2118;color:#f7f1e6}
+.sello{width:min(220px,100%);aspect-ratio:1;border-radius:50%;border:4px dashed #2d2118;display:grid;place-content:center;text-align:center;margin-inline:auto;transform:rotate(-8deg)}.sello b{font:400 3.2rem var(--fd)}.sello span{font-weight:700;text-transform:uppercase;font-size:.8rem;letter-spacing:.12em}
+.kraft{background:#e7d8bd}.pasos-lista li::before{font-family:var(--fd);border-radius:10px}.servicios-lista .n{font-family:var(--fd);font-weight:400}
+.btn{font-weight:700}.dos{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,60px)}.alt{background:#e7d8bd}.nota-chica{font-size:.85rem;opacity:.7;margin-top:14px}
+@media (max-width:900px){.dos,.hero-in,.cols{grid-template-columns:minmax(0,1fr)!important}.pasos-lista,.resenas-lista{grid-template-columns:minmax(0,1fr)}}
