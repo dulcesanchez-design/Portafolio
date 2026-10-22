@@ -1,0 +1,83 @@
+/* Decorados deportivos para los héroes de escuelas y ligas. Cada giro trae su propia ambientación. */
+.hero .hero-in{position:relative;z-index:2}
+.hero .fx{z-index:0}
+.deco{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.deco .ball{display:block;width:100%;height:auto;animation:giro 20s linear infinite;filter:drop-shadow(0 26px 26px rgba(0,0,0,.55))}
+.pelota{position:absolute;right:max(3vw,14px);bottom:9%;width:clamp(100px,19vw,270px);animation:bota 3.4s cubic-bezier(.3,0,.5,1) infinite}
+.pelota::after{content:"";position:absolute;left:12%;right:12%;bottom:-14px;height:16px;border-radius:50%;background:rgba(0,0,0,.45);filter:blur(7px);z-index:-1;animation:sombra 3.4s cubic-bezier(.3,0,.5,1) infinite}
+.pelota.chica{width:clamp(80px,11vw,160px);bottom:7%;right:22%}
+@keyframes giro{to{transform:rotate(360deg)}}
+@keyframes bota{0%,100%{transform:translateY(0)}50%{transform:translateY(-46px)}}
+@keyframes sombra{50%{transform:scale(.7);opacity:.5}}
+.banda{position:relative;z-index:3;width:100%}
+
+/* fútbol y liga */
+.cancha span{position:absolute;left:50%;bottom:-62%;width:min(82vw,980px);aspect-ratio:1;border:2px solid rgba(255,255,255,.14);border-radius:50%;transform:translateX(-50%)}
+.cancha span::before{content:"";position:absolute;left:50%;top:0;width:2px;height:100%;background:rgba(255,255,255,.09)}
+.b-cesped{height:56px;border-top:3px solid rgba(255,255,255,.6);background:repeating-linear-gradient(90deg,#14532d 0 72px,#166534 72px 144px)}
+.marcador{position:absolute;right:5%;top:15%;display:grid;grid-template-columns:auto auto auto auto auto;align-items:center;gap:12px;padding:14px 20px;background:#050505;border:2px solid #2a2a2a;border-radius:6px;color:#ffcf33;font:700 clamp(1.8rem,3.6vw,3.2rem) "Space Mono",monospace;text-shadow:0 0 14px rgba(255,207,51,.7);box-shadow:0 20px 50px -20px #000}
+.marcador small{font-size:.8rem;letter-spacing:.12em;color:#aaa;text-shadow:none}.marcador i{font-style:normal;opacity:.7}
+
+/* basquetbol */
+.d-basquetbol .pelota{bottom:8%}
+.aro{position:absolute;right:max(6vw,20px);top:11%;width:clamp(120px,15vw,210px);aspect-ratio:1/1.15}
+.tablero-b{position:absolute;left:0;right:0;top:0;height:60%;background:rgba(255,255,255,.92);border:5px solid #ff9a3d;border-radius:8px;box-shadow:0 20px 40px -20px #000}
+.tablero-b::after{content:"";position:absolute;left:30%;right:30%;bottom:10%;height:38%;border:4px solid #ff6a1a}
+.rim{position:absolute;left:22%;right:22%;top:58%;height:11%;border:6px solid #ff6a1a;border-radius:50%}
+.red{position:absolute;left:25%;right:25%;top:64%;height:34%;background:repeating-linear-gradient(60deg,transparent 0 6px,rgba(255,255,255,.8) 6px 8px),repeating-linear-gradient(-60deg,transparent 0 6px,rgba(255,255,255,.8) 6px 8px);clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)}
+.cancha-b{position:absolute;left:-3%;bottom:-8%;width:min(46vw,520px);color:rgba(255,154,61,.28)}
+.b-duela{height:50px;border-top:3px solid #fff;background:repeating-linear-gradient(90deg,#b5772e 0 56px,#a46a27 56px 112px)}
+
+/* natación */
+.t-clinico .hero:has(.d-natacion){background:linear-gradient(180deg,#e9f9ff,#bde9fa 65%,#8fd3ee)}
+.ola{position:absolute;left:0;bottom:0;width:200%;height:110px;animation:ola 14s linear infinite}
+.ola svg{width:100%;height:100%;display:block}
+.o2{animation-duration:9s;animation-direction:reverse;bottom:-14px}.o3{animation-duration:19s;bottom:-34px}
+@keyframes ola{to{transform:translateX(-50%)}}
+.burbujas i{position:absolute;bottom:-20px;left:var(--l);width:var(--s);aspect-ratio:1;border-radius:50%;border:2px solid rgba(255,255,255,.9);background:rgba(255,255,255,.3);animation:sube var(--d) linear var(--w) infinite}
+@keyframes sube{to{transform:translate(24px,-105vh)}}
+.b-carriles{height:46px;background:#0f7fa8;background-image:radial-gradient(circle at 12px 50%,#ef4136 9px,transparent 10px),radial-gradient(circle at 36px 50%,#fff 9px,transparent 10px);background-size:48px 100%;background-repeat:repeat-x}
+
+/* artes marciales */
+.enso{position:absolute;right:-4%;top:50%;width:min(660px,80vw);transform:translateY(-50%);color:var(--ac);opacity:.92;filter:drop-shadow(0 0 20px rgba(232,50,43,.45))}
+.kanji{position:absolute;right:calc(-4% + min(660px,80vw)/2 - .5em);top:50%;transform:translateY(-52%);font:700 clamp(7rem,20vw,16rem) "Space Mono",serif;color:rgba(239,236,228,.08)}
+.b-cintas{height:30px;background:linear-gradient(90deg,#f1f1f1 0 14.28%,#f5d90a 0 28.56%,#f28c1b 0 42.84%,#2fa84f 0 57.12%,#1e6fe0 0 71.4%,#7a4a24 0 85.68%,#0b0b0b 0)}
+
+/* gimnasia */
+.t-glass .hero:has(.d-gimnasia) .orbe{display:none}
+.cintas{position:absolute;right:0;top:4%;width:min(56vw,680px);animation:ondea 7s ease-in-out infinite}
+.cintas path{stroke-dasharray:1600;stroke-dashoffset:1600;animation:dibuja 3.2s ease forwards}
+@keyframes dibuja{to{stroke-dashoffset:0}}@keyframes ondea{50%{transform:translateY(-14px) rotate(1.5deg)}}
+.b-estrellas{height:14px;background:linear-gradient(90deg,#ff7ac1,#7a4dff,#ffd166,#ff7ac1)}
+
+/* béisbol */
+.diamante{position:absolute;left:4%;bottom:2%;width:clamp(170px,26vw,360px);color:rgba(255,255,255,.2)}
+.b-costuras{height:26px;background:repeating-linear-gradient(115deg,#d62d2d 0 3px,transparent 3px 15px),#efe9dc}
+
+/* danza */
+.cortina{position:absolute;top:0;bottom:0;width:17%;background:repeating-linear-gradient(90deg,#6d0f34 0 22px,#a31a53 22px 46px,#7d1340 46px 68px);-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent);mask-image:linear-gradient(90deg,#000 55%,transparent)}
+.cortina.izq{left:0}.cortina.der{right:0;transform:scaleX(-1)}
+.foco{position:absolute;top:-6%;width:34%;height:112%;background:linear-gradient(180deg,rgba(255,225,240,.42),transparent 88%);clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);transform-origin:50% 0;animation:balanceo 7s ease-in-out infinite}
+.f1{left:20%;transform:rotate(9deg)}.f2{right:20%;transform:rotate(-9deg);animation-delay:-3.5s}
+@keyframes balanceo{50%{transform:rotate(-5deg)}}
+.f2{animation-name:balanceo2}@keyframes balanceo2{50%{transform:rotate(5deg)}}
+.piso{position:absolute;left:0;right:0;bottom:0;height:24%;background:radial-gradient(ellipse at 50% 0,rgba(255,111,181,.4),transparent 70%)}
+.b-tarima{height:32px;border-top:3px solid #ff6fb5;background:linear-gradient(#5a3a22,#35210f)}
+
+/* ajedrez */
+.tablero{position:absolute;left:50%;bottom:-14%;width:150%;height:72%;transform:translateX(-50%) perspective(600px) rotateX(62deg);background:conic-gradient(#efece4 25%,#161616 0 50%,#efece4 0 75%,#161616 0) 0 0/120px 120px;opacity:.2;-webkit-mask-image:linear-gradient(to top,#000 25%,transparent 88%);mask-image:linear-gradient(to top,#000 25%,transparent 88%)}
+.pieza{position:absolute;line-height:1;color:transparent;-webkit-text-stroke:2px var(--ac);filter:drop-shadow(0 0 16px var(--ac));animation:flota2 6s ease-in-out infinite}
+.p1{right:7%;top:8%;font-size:clamp(150px,25vw,360px)}.p2{right:34%;bottom:4%;font-size:clamp(90px,13vw,190px);animation-delay:-2s;opacity:.8}.p3{right:3%;bottom:6%;font-size:clamp(70px,9vw,130px);animation-delay:-4s;opacity:.7}
+@keyframes flota2{50%{transform:translateY(-14px)}}
+.b-tablero{height:32px;background:conic-gradient(#efece4 25%,#161616 0 50%,#efece4 0 75%,#161616 0) 0 0/32px 32px}
+
+@media (max-width:700px){
+  .pelota{width:72px;bottom:auto;top:78px;right:12px}.pelota.chica{display:none}
+  .aro,.cancha-b{display:none}
+  .marcador{top:auto;bottom:6%;right:12px;font-size:1.3rem;padding:8px 12px;gap:8px}
+  .enso{right:-30%;width:120vw;opacity:.4}.kanji{opacity:.4}
+  .cintas{width:90vw;opacity:.55}.diamante{opacity:.5}
+  .pieza{opacity:.35!important}.cortina{width:10%}
+  .b-cesped,.b-duela{height:36px}
+}
+@media (prefers-reduced-motion:reduce){.deco *,.deco{animation:none!important}.cintas path{stroke-dashoffset:0}}
