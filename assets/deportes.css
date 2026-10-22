@@ -1,83 +1,141 @@
-/* Decorados deportivos para los héroes de escuelas y ligas. Cada giro trae su propia ambientación. */
-.hero .hero-in{position:relative;z-index:2}
-.hero .fx{z-index:0}
-.deco{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
-.deco .ball{display:block;width:100%;height:auto;animation:giro 20s linear infinite;filter:drop-shadow(0 26px 26px rgba(0,0,0,.55))}
-.pelota{position:absolute;right:max(3vw,14px);bottom:9%;width:clamp(100px,19vw,270px);animation:bota 3.4s cubic-bezier(.3,0,.5,1) infinite}
-.pelota::after{content:"";position:absolute;left:12%;right:12%;bottom:-14px;height:16px;border-radius:50%;background:rgba(0,0,0,.45);filter:blur(7px);z-index:-1;animation:sombra 3.4s cubic-bezier(.3,0,.5,1) infinite}
-.pelota.chica{width:clamp(80px,11vw,160px);bottom:7%;right:22%}
-@keyframes giro{to{transform:rotate(360deg)}}
-@keyframes bota{0%,100%{transform:translateY(0)}50%{transform:translateY(-46px)}}
-@keyframes sombra{50%{transform:scale(.7);opacity:.5}}
+/* Escenas deportivas: cada escuela o liga abre dentro de su propio deporte. */
+.hero .hero-in{position:relative;z-index:3}
+.hero .fx{z-index:1}
+.deco{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.fondo{position:absolute;inset:0;overflow:hidden;z-index:0}
+.fondo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.4) 52%,rgba(0,0,0,.05));z-index:2}
+.fondo .lineas{position:absolute;inset:0;width:100%;height:100%}
 .banda{position:relative;z-index:3;width:100%}
 
-/* fútbol y liga */
-.cancha span{position:absolute;left:50%;bottom:-62%;width:min(82vw,980px);aspect-ratio:1;border:2px solid rgba(255,255,255,.14);border-radius:50%;transform:translateX(-50%)}
-.cancha span::before{content:"";position:absolute;left:50%;top:0;width:2px;height:100%;background:rgba(255,255,255,.09)}
-.b-cesped{height:56px;border-top:3px solid rgba(255,255,255,.6);background:repeating-linear-gradient(90deg,#14532d 0 72px,#166534 72px 144px)}
-.marcador{position:absolute;right:5%;top:15%;display:grid;grid-template-columns:auto auto auto auto auto;align-items:center;gap:12px;padding:14px 20px;background:#050505;border:2px solid #2a2a2a;border-radius:6px;color:#ffcf33;font:700 clamp(1.8rem,3.6vw,3.2rem) "Space Mono",monospace;text-shadow:0 0 14px rgba(255,207,51,.7);box-shadow:0 20px 50px -20px #000}
-.marcador small{font-size:.8rem;letter-spacing:.12em;color:#aaa;text-shadow:none}.marcador i{font-style:normal;opacity:.7}
+/* composición: texto a la izquierda, el deporte a la derecha */
+.hero.escena{min-height:min(90vh,840px);display:grid;align-content:center;text-align:left;color:#fff}
+.hero.escena .hero-in{display:block;padding-block:clamp(70px,10vw,130px)}
+.hero.escena .hero-in>*{max-width:min(660px,100%)}
+.hero.escena .hero-in>.tiles{max-width:none}
+.hero.escena h1{color:#fff;margin-inline:0;max-width:13ch;text-shadow:0 4px 30px rgba(0,0,0,.45)}
+.hero.escena .entrada{color:rgba(255,255,255,.9);margin-inline:0}
+.hero.escena .acciones{justify-content:flex-start}
+.hero.escena .sobre{color:#fff}
+.hero.escena .fx[data-fx=dust],.hero.escena .halo,.hero.escena .orbe{display:none}
+.t-aura .hero.escena,.t-noche .hero.escena{text-align:left}
+
+/* balones */
+.deco .ball{display:block;width:100%;height:auto;animation:giro 20s linear infinite;filter:drop-shadow(0 30px 28px rgba(0,0,0,.55))}
+.pelota{position:absolute;right:max(4vw,14px);bottom:10%;width:clamp(120px,22vw,320px);animation:bota 3.2s cubic-bezier(.3,0,.5,1) infinite;z-index:4}
+.pelota::after{content:"";position:absolute;left:10%;right:10%;bottom:-16px;height:18px;border-radius:50%;background:rgba(0,0,0,.5);filter:blur(8px);z-index:-1;animation:sombra 3.2s cubic-bezier(.3,0,.5,1) infinite}
+.pelota.chica{width:clamp(90px,12vw,170px);bottom:8%;right:22%}
+@keyframes giro{to{transform:rotate(360deg)}}
+@keyframes bota{0%,100%{transform:translateY(0)}50%{transform:translateY(-50px)}}
+@keyframes sombra{50%{transform:scale(.65);opacity:.45}}
+
+/* anillo de partículas alrededor del balón (fútbol y béisbol) */
+.t-aura .hero.escena .fx{display:block}
+.t-aura .hero.escena .fx>div{position:absolute;right:2%;top:50%;transform:translateY(-50%);width:min(640px,54vw);aspect-ratio:1;display:block}
+.pelota.centro{right:calc(2% + min(640px,54vw)/2 - min(150px,12.5vw));top:50%;bottom:auto;margin-top:calc(min(300px,25vw)/-2);width:min(300px,25vw)}
+
+/* fútbol */
+.f-futbol{background:repeating-linear-gradient(90deg,#1b7f39 0 8.333%,#25984a 8.333% 16.666%)}
+.b-cesped{height:58px;border-top:3px solid rgba(255,255,255,.7);background:repeating-linear-gradient(90deg,#14532d 0 72px,#166534 72px 144px)}
+
+/* liga */
+.f-liga{background:linear-gradient(180deg,#040912 0,#0b1b30 50%)}
+.f-liga .pasto{position:absolute;left:0;right:0;bottom:0;height:46%;background:repeating-linear-gradient(90deg,#176a30 0 8.333%,#1f8340 8.333% 16.666%)}
+.f-liga .pasto .lineas{opacity:.8}
+.luz{position:absolute;top:-8%;width:44%;height:70%;background:linear-gradient(180deg,rgba(255,250,215,.5),transparent 90%);clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);animation:parpadeo 5s ease-in-out infinite}
+.l1{left:-6%;transform:rotate(-8deg)}.l2{right:-6%;transform:rotate(8deg);animation-delay:-2.5s}
+@keyframes parpadeo{50%{opacity:.7}}
+.marcador{position:absolute;right:6%;top:15%;display:grid;grid-template-columns:auto auto auto auto auto;align-items:center;gap:14px;padding:16px 24px;background:#050505;border:3px solid #333;border-radius:8px;color:#ffcf33;font:700 clamp(2rem,4.4vw,3.8rem) "Space Mono",monospace;text-shadow:0 0 16px rgba(255,207,51,.8);box-shadow:0 24px 60px -20px #000;z-index:4}
+.marcador small{font-size:.8rem;letter-spacing:.14em;color:#9a9a9a;text-shadow:none}.marcador i{font-style:normal;opacity:.7}
 
 /* basquetbol */
-.d-basquetbol .pelota{bottom:8%}
-.aro{position:absolute;right:max(6vw,20px);top:11%;width:clamp(120px,15vw,210px);aspect-ratio:1/1.15}
-.tablero-b{position:absolute;left:0;right:0;top:0;height:60%;background:rgba(255,255,255,.92);border:5px solid #ff9a3d;border-radius:8px;box-shadow:0 20px 40px -20px #000}
-.tablero-b::after{content:"";position:absolute;left:30%;right:30%;bottom:10%;height:38%;border:4px solid #ff6a1a}
-.rim{position:absolute;left:22%;right:22%;top:58%;height:11%;border:6px solid #ff6a1a;border-radius:50%}
-.red{position:absolute;left:25%;right:25%;top:64%;height:34%;background:repeating-linear-gradient(60deg,transparent 0 6px,rgba(255,255,255,.8) 6px 8px),repeating-linear-gradient(-60deg,transparent 0 6px,rgba(255,255,255,.8) 6px 8px);clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)}
-.cancha-b{position:absolute;left:-3%;bottom:-8%;width:min(46vw,520px);color:rgba(255,154,61,.28)}
+.f-basquet{background:repeating-linear-gradient(90deg,#d08e48 0 6.25%,#bb7b3a 6.25% 12.5%)}
+.aro{position:absolute;right:max(7vw,20px);top:9%;width:clamp(150px,18vw,250px);aspect-ratio:1/1.15;z-index:4}
+.tablero-b{position:absolute;left:0;right:0;top:0;height:60%;background:rgba(255,255,255,.95);border:6px solid #ff7a1a;border-radius:8px;box-shadow:0 24px 40px -18px #000}
+.tablero-b::after{content:"";position:absolute;left:30%;right:30%;bottom:10%;height:38%;border:5px solid #ff7a1a}
+.rim{position:absolute;left:22%;right:22%;top:58%;height:11%;border:7px solid #ff5a0a;border-radius:50%}
+.red{position:absolute;left:25%;right:25%;top:64%;height:34%;background:repeating-linear-gradient(60deg,transparent 0 6px,rgba(255,255,255,.85) 6px 8px),repeating-linear-gradient(-60deg,transparent 0 6px,rgba(255,255,255,.85) 6px 8px);clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)}
+.d-basquetbol .pelota{bottom:7%;right:16%}
 .b-duela{height:50px;border-top:3px solid #fff;background:repeating-linear-gradient(90deg,#b5772e 0 56px,#a46a27 56px 112px)}
 
 /* natación */
-.t-clinico .hero:has(.d-natacion){background:linear-gradient(180deg,#e9f9ff,#bde9fa 65%,#8fd3ee)}
-.ola{position:absolute;left:0;bottom:0;width:200%;height:110px;animation:ola 14s linear infinite}
+.hero.escena:has(.d-natacion),.d-natacion{color:#fff}
+.t-clinico .hero.escena:has(.d-natacion){background:#0a6fb8}
+.f-agua{background:linear-gradient(180deg,#13b4e6,#0a6fb8 85%)}
+.f-agua::before{content:"";position:absolute;inset:-20%;background:radial-gradient(ellipse 160px 70px at 15% 25%,rgba(255,255,255,.28),transparent 70%),radial-gradient(ellipse 200px 80px at 55% 15%,rgba(255,255,255,.22),transparent 70%),radial-gradient(ellipse 140px 60px at 80% 45%,rgba(255,255,255,.26),transparent 70%),radial-gradient(ellipse 220px 90px at 35% 62%,rgba(255,255,255,.18),transparent 70%);animation:luzagua 9s ease-in-out infinite alternate}
+@keyframes luzagua{to{transform:translate(4%,6%) scale(1.06)}}
+.f-agua::after{background:linear-gradient(90deg,rgba(2,30,60,.55),rgba(2,30,60,.15) 60%,transparent)}
+.carril{position:absolute;left:0;right:0;height:16px;z-index:2;background:radial-gradient(circle at 12px 50%,#ef4136 7px,transparent 8px),radial-gradient(circle at 36px 50%,#fff 7px,transparent 8px);background-size:48px 100%;filter:drop-shadow(0 8px 6px rgba(0,40,80,.35))}
+.c1{top:6%}.c2{display:none}
+.ola{position:absolute;left:0;bottom:0;width:200%;height:120px;animation:ola 14s linear infinite;z-index:2}
 .ola svg{width:100%;height:100%;display:block}
 .o2{animation-duration:9s;animation-direction:reverse;bottom:-14px}.o3{animation-duration:19s;bottom:-34px}
 @keyframes ola{to{transform:translateX(-50%)}}
-.burbujas i{position:absolute;bottom:-20px;left:var(--l);width:var(--s);aspect-ratio:1;border-radius:50%;border:2px solid rgba(255,255,255,.9);background:rgba(255,255,255,.3);animation:sube var(--d) linear var(--w) infinite}
+.burbujas i{position:absolute;bottom:-20px;left:var(--l);width:var(--s);aspect-ratio:1;border-radius:50%;border:2px solid rgba(255,255,255,.9);background:rgba(255,255,255,.3);animation:sube var(--d) linear var(--w) infinite;z-index:2}
 @keyframes sube{to{transform:translate(24px,-105vh)}}
-.b-carriles{height:46px;background:#0f7fa8;background-image:radial-gradient(circle at 12px 50%,#ef4136 9px,transparent 10px),radial-gradient(circle at 36px 50%,#fff 9px,transparent 10px);background-size:48px 100%;background-repeat:repeat-x}
+.b-carriles{height:46px;background:#0a6fb8;background-image:radial-gradient(circle at 12px 50%,#ef4136 9px,transparent 10px),radial-gradient(circle at 36px 50%,#fff 9px,transparent 10px);background-size:48px 100%;background-repeat:repeat-x}
+.t-clinico .hero.escena:has(.d-natacion) .tile{backdrop-filter:blur(6px)}
 
 /* artes marciales */
-.enso{position:absolute;right:-4%;top:50%;width:min(660px,80vw);transform:translateY(-50%);color:var(--ac);opacity:.92;filter:drop-shadow(0 0 20px rgba(232,50,43,.45))}
-.kanji{position:absolute;right:calc(-4% + min(660px,80vw)/2 - .5em);top:50%;transform:translateY(-52%);font:700 clamp(7rem,20vw,16rem) "Space Mono",serif;color:rgba(239,236,228,.08)}
+.f-dojo{background:linear-gradient(180deg,#180808,#240c0c 62%)}
+.tatami{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(90deg,rgba(0,0,0,.35) 3px,transparent 3px) 0 0/170px 100%,linear-gradient(rgba(0,0,0,.3) 3px,transparent 3px) 0 0/100% 85px,#c8b682;border-top:6px solid #5a2a12}
+.sol{position:absolute;right:6%;top:50%;width:min(560px,46vw);aspect-ratio:1;border-radius:50%;transform:translateY(-58%);background:radial-gradient(circle at 40% 35%,#ff4b3a,#d4231b 55%,#8e1010);box-shadow:0 0 90px 10px rgba(224,38,29,.55);z-index:2}
+.kanji{position:absolute;right:calc(6% + min(560px,46vw)/2 - .52em);top:50%;transform:translateY(-62%);font:700 clamp(8rem,24vw,19rem)/1 "Space Mono",serif;color:rgba(20,6,6,.85);z-index:3}
+.cinturon{display:none;position:absolute;left:0;right:0;height:22px;z-index:3;background:linear-gradient(90deg,#f1f1f1 0 14.28%,#f5d90a 0 28.56%,#f28c1b 0 42.84%,#2fa84f 0 57.12%,#1e6fe0 0 71.4%,#7a4a24 0 85.68%,#0b0b0b 0);bottom:calc(34% - 3px);opacity:.95}
+.c2{display:none}
 .b-cintas{height:30px;background:linear-gradient(90deg,#f1f1f1 0 14.28%,#f5d90a 0 28.56%,#f28c1b 0 42.84%,#2fa84f 0 57.12%,#1e6fe0 0 71.4%,#7a4a24 0 85.68%,#0b0b0b 0)}
 
 /* gimnasia */
-.t-glass .hero:has(.d-gimnasia) .orbe{display:none}
-.cintas{position:absolute;right:0;top:4%;width:min(56vw,680px);animation:ondea 7s ease-in-out infinite}
+.f-gim{background:radial-gradient(600px 500px at 75% 40%,rgba(255,170,230,.55),transparent 70%),linear-gradient(135deg,#2a1466,#5b2fc9 55%,#c13fb4)}
+.cintas{position:absolute;right:0;top:2%;width:min(62vw,760px);animation:ondea 7s ease-in-out infinite;z-index:3}
 .cintas path{stroke-dasharray:1600;stroke-dashoffset:1600;animation:dibuja 3.2s ease forwards}
 @keyframes dibuja{to{stroke-dashoffset:0}}@keyframes ondea{50%{transform:translateY(-14px) rotate(1.5deg)}}
+.aro-g{position:absolute;border-radius:50%;border:16px solid;z-index:3;animation:flota2 6s ease-in-out infinite}
+.a1{right:12%;bottom:12%;width:clamp(110px,16vw,220px);aspect-ratio:1;border-color:#ffd166;box-shadow:0 0 30px rgba(255,209,102,.6),inset 0 0 20px rgba(255,209,102,.4)}
+.a2{right:26%;bottom:4%;width:clamp(70px,10vw,140px);aspect-ratio:1;border-color:#ff7ac1;animation-delay:-3s;box-shadow:0 0 30px rgba(255,122,193,.6)}
 .b-estrellas{height:14px;background:linear-gradient(90deg,#ff7ac1,#7a4dff,#ffd166,#ff7ac1)}
+.t-glass .hero.escena h1{text-shadow:0 4px 24px rgba(30,0,80,.5)}
 
 /* béisbol */
-.diamante{position:absolute;left:4%;bottom:2%;width:clamp(170px,26vw,360px);color:rgba(255,255,255,.2)}
+.f-beis{background:linear-gradient(180deg,#050c1f,#12306a 48%,#1d5a2d 48%)}
+.f-beis .lineas{bottom:0;top:auto;height:62%}
 .b-costuras{height:26px;background:repeating-linear-gradient(115deg,#d62d2d 0 3px,transparent 3px 15px),#efe9dc}
 
 /* danza */
-.cortina{position:absolute;top:0;bottom:0;width:17%;background:repeating-linear-gradient(90deg,#6d0f34 0 22px,#a31a53 22px 46px,#7d1340 46px 68px);-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent);mask-image:linear-gradient(90deg,#000 55%,transparent)}
+.f-danza{background:linear-gradient(180deg,#14040c,#3a0c26 70%,#5a1238)}
+.f-danza::after{background:linear-gradient(90deg,rgba(0,0,0,.45),transparent 55%,rgba(0,0,0,.25))}
+.cortina{position:absolute;top:0;bottom:0;width:24%;z-index:2;background:repeating-linear-gradient(90deg,#6d0f34 0 24px,#b01e5c 24px 50px,#7d1340 50px 74px);-webkit-mask-image:linear-gradient(90deg,#000 62%,transparent);mask-image:linear-gradient(90deg,#000 62%,transparent)}
 .cortina.izq{left:0}.cortina.der{right:0;transform:scaleX(-1)}
-.foco{position:absolute;top:-6%;width:34%;height:112%;background:linear-gradient(180deg,rgba(255,225,240,.42),transparent 88%);clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);transform-origin:50% 0;animation:balanceo 7s ease-in-out infinite}
-.f1{left:20%;transform:rotate(9deg)}.f2{right:20%;transform:rotate(-9deg);animation-delay:-3.5s}
-@keyframes balanceo{50%{transform:rotate(-5deg)}}
-.f2{animation-name:balanceo2}@keyframes balanceo2{50%{transform:rotate(5deg)}}
-.piso{position:absolute;left:0;right:0;bottom:0;height:24%;background:radial-gradient(ellipse at 50% 0,rgba(255,111,181,.4),transparent 70%)}
-.b-tarima{height:32px;border-top:3px solid #ff6fb5;background:linear-gradient(#5a3a22,#35210f)}
+.foco{position:absolute;top:-6%;width:36%;height:112%;z-index:2;background:linear-gradient(180deg,rgba(255,235,245,.55),transparent 88%);clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);transform-origin:50% 0;animation:balanceo 7s ease-in-out infinite}
+.f1{left:30%;transform:rotate(9deg)}.f2{right:14%;transform:rotate(-9deg);animation-name:balanceo2;animation-delay:-3.5s}
+@keyframes balanceo{50%{transform:rotate(-5deg)}}@keyframes balanceo2{50%{transform:rotate(5deg)}}
+.piso{position:absolute;left:0;right:0;bottom:0;height:22%;z-index:2;background:radial-gradient(ellipse at 70% 0,rgba(255,150,200,.6),transparent 60%),repeating-linear-gradient(90deg,#8a5a34 0 90px,#7a4c2a 90px 180px)}
+.nota{position:absolute;z-index:3;font-size:clamp(2rem,5vw,4rem);color:rgba(255,200,230,.85);text-shadow:0 0 18px #ff5fa8;animation:flota2 5s ease-in-out infinite}
+.n1{right:16%;top:18%}.n2{right:30%;top:44%;animation-delay:-1.5s}.n3{right:8%;top:56%;animation-delay:-3s}.n4{right:40%;top:14%;animation-delay:-4s}
+.b-tarima{height:32px;border-top:3px solid #ff5fa8;background:linear-gradient(#5a3a22,#35210f)}
 
 /* ajedrez */
-.tablero{position:absolute;left:50%;bottom:-14%;width:150%;height:72%;transform:translateX(-50%) perspective(600px) rotateX(62deg);background:conic-gradient(#efece4 25%,#161616 0 50%,#efece4 0 75%,#161616 0) 0 0/120px 120px;opacity:.2;-webkit-mask-image:linear-gradient(to top,#000 25%,transparent 88%);mask-image:linear-gradient(to top,#000 25%,transparent 88%)}
-.pieza{position:absolute;line-height:1;color:transparent;-webkit-text-stroke:2px var(--ac);filter:drop-shadow(0 0 16px var(--ac));animation:flota2 6s ease-in-out infinite}
-.p1{right:7%;top:8%;font-size:clamp(150px,25vw,360px)}.p2{right:34%;bottom:4%;font-size:clamp(90px,13vw,190px);animation-delay:-2s;opacity:.8}.p3{right:3%;bottom:6%;font-size:clamp(70px,9vw,130px);animation-delay:-4s;opacity:.7}
-@keyframes flota2{50%{transform:translateY(-14px)}}
-.b-tablero{height:32px;background:conic-gradient(#efece4 25%,#161616 0 50%,#efece4 0 75%,#161616 0) 0 0/32px 32px}
+.f-ajedrez{background:conic-gradient(#efece4 25%,#171717 0 50%,#efece4 0 75%,#171717 0) 0 0/130px 130px}
+.f-ajedrez::after{background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.55) 55%,rgba(0,0,0,.25))}
+.pieza{position:absolute;line-height:1;color:#efece4;text-shadow:0 0 30px var(--ac),0 14px 40px #000;animation:flota2 6s ease-in-out infinite;z-index:3}
+.p1{right:7%;top:6%;font-size:clamp(190px,34vw,500px)}.p2{right:38%;bottom:4%;font-size:clamp(100px,15vw,220px);animation-delay:-2s;color:#7cff6b}.p3{right:2%;bottom:4%;font-size:clamp(80px,10vw,150px);animation-delay:-4s;opacity:.85}
+@keyframes flota2{50%{transform:translateY(-16px)}}
+.b-tablero{height:34px;background:conic-gradient(#efece4 25%,#171717 0 50%,#efece4 0 75%,#171717 0) 0 0/34px 34px}
 
-@media (max-width:700px){
-  .pelota{width:72px;bottom:auto;top:78px;right:12px}.pelota.chica{display:none}
-  .aro,.cancha-b{display:none}
-  .marcador{top:auto;bottom:6%;right:12px;font-size:1.3rem;padding:8px 12px;gap:8px}
-  .enso{right:-30%;width:120vw;opacity:.4}.kanji{opacity:.4}
-  .cintas{width:90vw;opacity:.55}.diamante{opacity:.5}
-  .pieza{opacity:.35!important}.cortina{width:10%}
+@media (max-width:760px){
+  .hero.escena{min-height:auto}
+  .hero.escena h1{max-width:none}
+  .t-aura .hero.escena .fx>div{right:-20%;width:90vw;opacity:.7}
+  .pelota.centro{right:12px;top:auto;bottom:14px;margin-top:0;width:70px}
+  .pelota,.pelota.chica{width:70px;bottom:14px;top:auto;right:12px}
+  .hero.escena .hero-in{padding-bottom:110px}
+  .aro,.marcador{display:none}
+  .sol{right:-24%;width:90vw;opacity:.6}.kanji{right:-4%;opacity:.5}
+  .cintas{width:100vw;opacity:.5}.aro-g{opacity:.5}
+  .pieza{opacity:.35!important}.nota{opacity:.5}
+  .fondo::after{background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.7))}
   .b-cesped,.b-duela{height:36px}
 }
 @media (prefers-reduced-motion:reduce){.deco *,.deco{animation:none!important}.cintas path{stroke-dashoffset:0}}
+
+.hero.escena .sobre{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+.hero.escena .btn-o{color:#fff;border-color:rgba(255,255,255,.75);background:rgba(255,255,255,.08)}
