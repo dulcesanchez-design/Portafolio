@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equilibrio Nutrición</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/core.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="saltar" href="#agenda">Ir a agendar</a>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<header class="top wrap">
+  <a class="marca" href="#"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M8 17c3-6 9-8 16-6-1 7-6 11-16 6Z" fill="currentColor"/></svg><span data-n="nombre"></span></a>
+  <nav><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#faq">Dudas</a><a class="btn chico" href="#agenda">Agendar</a></nav>
+</header>
+
+<main>
+<section class="hero wrap">
+  <div class="hero-txt">
+    <h1>Una alimentación que se adapta a tu vida.</h1>
+    <p class="entrada">Nutrición clínica y deportiva con seguimiento real. Sin dietas imposibles ni listas de alimentos prohibidos.</p>
+    <div class="acciones"><a class="btn" href="#agenda">Agendar cita</a><a class="btn btn-o" href="#servicios">Ver servicios</a></div>
+    <div data-r="redes" class="redes"></div>
+  </div>
+  <aside class="cristal rapida" aria-label="Agenda rápida">
+    <h2>Agenda en 30 segundos</h2>
+    <p>Próximos días con horarios disponibles</p>
+    <div class="rapida-dias" id="rapida"></div>
+    <a class="btn" href="#agenda">Elegir hora</a>
+  </aside>
+</section>
+
+<section class="seccion" id="proceso"><div class="wrap">
+  <h2>Cómo trabajamos</h2>
+  <ol data-r="pasos" class="linea"></ol>
+</div></section>
+
+<section class="seccion" id="servicios"><div class="wrap">
+  <h2>Servicios y precios</h2>
+  <div class="cristal panel"><ul data-r="servicios"></ul></div>
+</div></section>
+
+<section class="seccion"><div class="wrap">
+  <h2>Resultados de pacientes</h2>
+  <div data-r="resenas"></div>
+  <p class="nota-chica">Reseñas de ejemplo.</p>
+</div></section>
+
+<section class="seccion" id="agenda"><div class="wrap">
+  <h2>Agenda tu cita</h2>
+  <div data-r="agenda"></div>
+</div></section>
+
+<section class="seccion" id="faq"><div class="wrap dos">
+  <div><h2>Preguntas frecuentes</h2><p>¿Otra duda? Escríbenos por WhatsApp y te respondemos.</p><div data-r="redes" class="redes"></div></div>
+  <div data-r="faq"></div>
+</div></section>
+
+<section class="seccion"><div class="wrap dos">
+  <div><h2>Ubicación</h2><div data-r="contacto"></div></div>
+  <div class="cristal panel"><dl data-r="horario"></dl></div>
+</div></section>
+</main>
+
+<script>window.EJEMPLO={giro:"nutricion",n:3,total:3};window.NEGOCIO={nombre:"Equilibrio Nutrición",profesional:"Lic. Carlos Mendoza"};</script>
+<script src="../../assets/giros.js"></script>
+<script src="../../assets/core.js"></script>
+<script>
+(function(){const d=new Date(),out=[],D=["dom","lun","mar","mié","jue","vie","sáb"];
+for(let i=1;out.length<4&&i<14;i++){const x=new Date(d);x.setDate(d.getDate()+i);if(x.getDay()!==0)out.push(x);}
+document.getElementById("rapida").innerHTML=out.map(x=>'<a href="#agenda"><span>'+D[x.getDay()]+'</span><strong>'+x.getDate()+'</strong></a>').join("");})();
+</script>
+</body>
+</html>

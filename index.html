@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DS DigitalCode, portafolio de páginas web</title>
+<meta name="description" content="Ejemplos de páginas web para consultorios y negocios locales: nutrición, psicología, odontología y veterinaria.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/hub.css">
+</head>
+<body>
+<header class="cab">
+  <span class="logo">DS DigitalCode</span>
+  <a class="chico-wa" href="https://wa.me/525585637134?text=Hola%20Dulce%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20una%20p%C3%A1gina%20web." target="_blank" rel="noopener">WhatsApp</a>
+</header>
+
+<main>
+<section class="portada">
+  <h1>Páginas web para consultorios y negocios de tu zona.</h1>
+  <p>Elige tu giro y abre los ejemplos. Todas tienen agenda de citas, botón de WhatsApp, redes sociales y se ven bien en el celular. Cada una se adapta a tu nombre, tus colores y tu estilo.</p>
+  <nav class="giros" aria-label="Giros">
+    <a href="#nutricion">Nutrición</a><a href="#psicologia">Psicología</a><a href="#odontologia">Odontología</a><a href="#veterinaria">Veterinaria</a>
+  </nav>
+</section>
+
+<section class="incluye" aria-label="Qué incluye">
+  <ul>
+    <li><b>Agenda en línea</b><span>Tus clientes eligen día y hora desde el celular.</span></li>
+    <li><b>WhatsApp y redes</b><span>Botones directos para que te escriban.</span></li>
+    <li><b>Servicios y precios</b><span>Todo claro en un solo lugar.</span></li>
+    <li><b>Ubicación y horarios</b><span>Con el mapa para llegar.</span></li>
+    <li><b>Reseñas y preguntas</b><span>Genera confianza antes de la primera cita.</span></li>
+    <li><b>Hecha a tu estilo</b><span>Nombre, colores y diseño a tu gusto.</span></li>
+  </ul>
+</section>
+
+<section class="giro" id="nutricion">
+  <div class="giro-cab"><h2>Nutrición</h2><p>Citas, planes, servicios y recordatorios.</p></div>
+  <div class="ejemplos" data-giro="nutricion"></div>
+</section>
+<section class="giro" id="psicologia">
+  <div class="giro-cab"><h2>Psicología</h2><p>Un espacio tranquilo para dar el primer paso.</p></div>
+  <div class="ejemplos" data-giro="psicologia"></div>
+</section>
+<section class="giro" id="odontologia">
+  <div class="giro-cab"><h2>Odontología</h2><p>Citas, tratamientos y presupuestos claros.</p></div>
+  <div class="ejemplos" data-giro="odontologia"></div>
+</section>
+<section class="giro" id="veterinaria">
+  <div class="giro-cab"><h2>Veterinaria</h2><p>Citas, cartilla de vacunación y recetas en línea.</p></div>
+  <div class="ejemplos" data-giro="veterinaria"></div>
+</section>
+</main>
+
+<footer class="pie">
+  <p>Todos los ejemplos usan datos de muestra. En tu página van tu nombre, tus servicios y tus precios.</p>
+  <p class="contacto-chico">DS DigitalCode, Dulce. WhatsApp <a href="https://wa.me/525585637134" target="_blank" rel="noopener">+52 55 8563 7134</a></p>
+</footer>
+
+<script>
+const LISTA = {
+  nutricion:[["Cálido y fresco","Colores mango y verde, con un plato interactivo"],["Gomitas de fruta","Colorido y juguetón, para toda la familia"],["Aurora y cristal","Limpio y moderno, con agenda rápida"]],
+  psicologia:[["Noche serena","Fondo oscuro con respiración guiada"],["Cristal","Cubo de cristal y colores suaves"],["Papel y hojas","Sobrio, tranquilo y cercano"]],
+  odontologia:[["Cristal clínico","Aire limpio de clínica y control de sonrisa"],["Stickers","Alegre y atrevido, para toda la familia"],["Dorado oscuro","Elegante, para tratamientos especializados"]],
+  veterinaria:[["Huellitas","Cálido y amigable, con cartilla digital"],["Aplicación","Se ve como app, con la cartilla en el celular"],["Urgencias","Contundente, con llamada directa"]]
+};
+document.querySelectorAll(".ejemplos").forEach(box=>{
+  const g=box.dataset.giro;
+  box.innerHTML=LISTA[g].map((e,i)=>{
+    const url=g+"/"+(i+1)+"/index.html";
+    return `<a class="ej" href="${url}">
+      <div class="marco"><iframe src="${url}" loading="lazy" tabindex="-1" title="Vista previa de ${e[0]}" aria-hidden="true"></iframe></div>
+      <div class="ej-txt"><h3>Ejemplo ${i+1}: ${e[0]}</h3><p>${e[1]}</p><span class="abrir">Abrir ejemplo</span></div></a>`;
+  }).join("");
+});
+</script>
+
+<script>
+/* Ajusta la escala de las vistas previas al ancho real de cada tarjeta */
+function escala(){document.querySelectorAll(".marco").forEach(m=>{m.style.setProperty("--e",(m.clientWidth/1366).toFixed(4));});}
+addEventListener("resize",escala);addEventListener("load",escala);escala();
+</script>
+</body>
+</html>

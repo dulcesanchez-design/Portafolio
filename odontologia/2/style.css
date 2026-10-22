@@ -1,0 +1,42 @@
+:root{--bg:#fff;--fg:#111;--ac:#2B59FF;--ac-fg:#fff;--ac2:#FFE14D;--ac2-fg:#111;--card:#fff;--linea:#111;--r:14px;--fd:"Rubik",system-ui,sans-serif;--ft:"Rubik",system-ui,sans-serif;--bb:3px solid #111;--forma-bg:#FFE14D;--forma-fg:#111;--forma-sombra:#111}
+h1,h2{font-weight:800;letter-spacing:-.03em}
+h2{font-size:clamp(2rem,4.6vw,3.4rem);margin-bottom:28px}
+.top{display:flex;align-items:center;justify-content:space-between;padding-block:18px;position:relative;z-index:3}
+.marca{font:800 1.5rem var(--fd);text-decoration:none;color:#fff}
+.btn{background:#FFE14D;color:#111;border:3px solid #111;border-radius:14px;box-shadow:4px 4px 0 #111;font-weight:800}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #111}
+.btn-o{background:#fff}
+.hero{background:#2B59FF;color:#fff;margin-top:-72px;padding-top:72px;overflow:hidden}
+.hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding-block:clamp(30px,6vw,70px) clamp(60px,9vw,110px)}
+.hero h1{font-size:clamp(2.8rem,7vw,6rem);line-height:.95;margin-bottom:22px}
+.entrada{font-size:1.2rem;margin-bottom:26px;max-width:40ch}
+.acciones{align-items:center;gap:20px}
+.red{background:#fff;color:#111;border:3px solid #111;box-shadow:3px 3px 0 #111}
+.stickers{position:relative;height:clamp(260px,34vw,400px)}
+.st{position:absolute;padding:.7em 1.1em;font:800 clamp(1rem,1.8vw,1.4rem) var(--fd);color:#111;background:#fff;border:3px solid #111;border-radius:999px;box-shadow:5px 5px 0 #111}
+.s1{left:4%;top:6%;transform:rotate(-8deg);background:#FFE14D}
+.s2{right:0;top:24%;transform:rotate(6deg);background:#FF8AD8}
+.s3{left:10%;top:52%;transform:rotate(-3deg);background:#7CF5C8}
+.s4{right:4%;bottom:2%;transform:rotate(-7deg)}
+@media (prefers-reduced-motion:no-preference){.st{animation:pega .5s cubic-bezier(.3,1.8,.5,1) both}.s2{animation-delay:.12s}.s3{animation-delay:.24s}.s4{animation-delay:.36s}@keyframes pega{from{opacity:0;transform:scale(1.6) rotate(20deg)}}}
+.banda.amarilla{background:#FFE14D}.banda.rosa{background:#FF8AD8}.banda.azul{background:#7CF5C8}
+.banda{border-block:3px solid #111}
+.pasos-lista li{padding:22px;background:#fff;border:3px solid #111;border-radius:var(--r);box-shadow:5px 5px 0 #111}
+.pasos-lista li::before{background:#2B59FF;border:3px solid #111;color:#fff}
+.pegatinas{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pegatinas li{display:flex;flex-direction:column;gap:6px;padding:22px;border:3px solid #111!important;border-radius:var(--r);background:#fff;box-shadow:6px 6px 0 #111}
+.pegatinas li:nth-child(odd){transform:rotate(-1deg)}.pegatinas li:nth-child(even){transform:rotate(1deg)}
+.pegatinas .p{grid:none;text-align:left;margin-top:auto;padding-top:10px;color:#2B59FF;font-size:2rem}
+.pegatinas .p small{display:inline;margin-left:8px;color:#111}
+.resenas-lista figure{background:#fff;border:3px solid #111;box-shadow:5px 5px 0 #111}
+.nota-chica{font-size:.85rem;margin-top:16px}
+.ag-form{background:#fff;border:3px solid #111;box-shadow:8px 8px 0 #111}
+.ag-form input,.ag-form select{border:3px solid #111;border-radius:10px}
+.dia,.hora{border:3px solid #111;box-shadow:3px 3px 0 #111}
+.dia[aria-pressed=true]{background:#2B59FF;color:#fff}.hora[aria-pressed=true]{background:#FFE14D;color:#111}
+.ag-resumen{border:3px dashed #111;background:#FFF6B8}
+.ag-listo{border:3px solid #111;box-shadow:8px 8px 0 #111;background:#7CF5C8}
+.dos{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,60px)}
+.caja{padding:26px;border:3px solid #111;border-radius:var(--r);box-shadow:6px 6px 0 #111;align-self:start}
+.faq-lista details{border-color:#111}
+@media (max-width:900px){.hero-in,.dos,.pegatinas{grid-template-columns:minmax(0,1fr)}.stickers{height:240px}}

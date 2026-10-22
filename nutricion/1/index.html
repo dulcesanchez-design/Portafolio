@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brote, nutrición</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/core.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="saltar" href="#agenda">Ir a agendar</a>
+<header class="top">
+  <a class="marca" href="#" aria-label="Brote">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M16 29V14" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M16 15C16 8 11 4 4 4c0 7 4 11 12 11Z" fill="currentColor"/><path d="M16 19c0-5 3.500-9 12-9 0 6-4 9-12 9Z" fill="currentColor" opacity=".55"/></svg>
+    <span data-n="nombre"></span>
+  </a>
+  <nav aria-label="Principal"><a href="#consulta">Tu consulta</a><a href="#servicios">Servicios</a><a href="#conoceme">Sobre mí</a><a href="#visita">Dónde</a></nav>
+  <a class="btn chico" href="#agenda">Agendar cita</a>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <h1>Comer bien sin dejar de comer rico.</h1>
+    <p class="entrada">Planes de alimentación hechos con lo que ya hay en tu mercado y en tu cocina. Agenda desde el celular y llega con tus dudas, no con formularios.</p>
+    <div class="acciones">
+      <a data-forma="leaf" href="#agenda" style="--forma-w:150px">Agendar</a>
+      <a class="btn btn-o" href="#servicios">Ver servicios</a>
+    </div>
+    <div data-r="redes" class="redes-hero"></div>
+  </div>
+  <figure class="plato" aria-label="Plato del Bien Comer, interactivo">
+    <svg viewBox="0 0 400 400" role="group" aria-label="Los tres grupos de alimentos">
+      <circle cx="200" cy="200" r="198" fill="#fff"/>
+      <g class="sector s1" data-g="verduras" tabindex="0" role="button" aria-label="Verduras y frutas"><path d="M200 200 L200 10 A190 190 0 0 1 364.55 295 Z" fill="#2F8F4E"/><g fill="#8fd6a2"><ellipse cx="280" cy="120" rx="16" ry="34" transform="rotate(35 280 120)"/><ellipse cx="318" cy="170" rx="14" ry="30" transform="rotate(75 318 170)"/><ellipse cx="252" cy="165" rx="12" ry="26" transform="rotate(-10 252 165)"/></g><circle cx="300" cy="228" r="18" fill="#FF8F8A"/><circle cx="262" cy="92" r="11" fill="#FFB020"/></g>
+      <g class="sector s2" data-g="cereales" tabindex="0" role="button" aria-label="Cereales y tubérculos"><path d="M200 200 L364.55 295 A190 190 0 0 1 35.45 295 Z" fill="#FFB020"/><g fill="#fff3cf"><ellipse cx="150" cy="315" rx="9" ry="19" transform="rotate(-25 150 315)"/><ellipse cx="178" cy="327" rx="9" ry="19" transform="rotate(-8 178 327)"/><ellipse cx="208" cy="330" rx="9" ry="19"/><ellipse cx="238" cy="327" rx="9" ry="19" transform="rotate(8 238 327)"/><ellipse cx="266" cy="315" rx="9" ry="19" transform="rotate(25 266 315)"/></g><circle cx="208" cy="272" r="22" fill="#14352A" opacity=".14"/></g>
+      <g class="sector s3" data-g="proteina" tabindex="0" role="button" aria-label="Leguminosas y alimentos de origen animal"><path d="M200 200 L35.45 295 A190 190 0 0 1 200 10 Z" fill="#8A3B24"/><g fill="#e9b59f"><ellipse cx="108" cy="118" rx="20" ry="11" transform="rotate(-30 108 118)"/><ellipse cx="146" cy="160" rx="20" ry="11" transform="rotate(20 146 160)"/><ellipse cx="86" cy="178" rx="20" ry="11" transform="rotate(50 86 178)"/></g><ellipse cx="150" cy="96" rx="22" ry="27" fill="#fff"/><circle cx="150" cy="100" r="11" fill="#FFB020"/></g>
+      <circle cx="200" cy="200" r="198" fill="none" stroke="#14352A" stroke-width="2"/>
+    </svg>
+    <figcaption id="plato-nota" aria-live="polite"><strong>Toca una parte del plato</strong><span>Así se reparte lo que comemos en un día, sin prohibir nada.</span></figcaption>
+  </figure>
+</section>
+
+<section class="consulta seccion" id="consulta"><div class="wrap">
+  <h2>Cómo es tu primera consulta</h2>
+  <ol data-r="pasos"></ol>
+</div></section>
+
+<section class="servicios seccion" id="servicios"><div class="wrap grid2">
+  <div><h2>Servicios</h2><p>Precios por consulta. Si no sabes cuál te conviene, elige la primera consulta y lo vemos juntas.</p></div>
+  <ul data-r="servicios"></ul>
+</div></section>
+
+<section class="yo seccion" id="conoceme"><div class="wrap grid-yo">
+  <div class="monograma" aria-hidden="true"><span>AR</span></div>
+  <div>
+    <h2>Hola, soy Ana Lucía</h2>
+    <p>Soy nutrióloga y trabajo con familias de la región. No hago dietas de revista: armo planes que se puedan cocinar entre semana, con lo que se consigue en el tianguis y que tu familia sí se coma.</p>
+    <p>Atiendo hipertensión, diabetes, control de peso, alimentación deportiva y embarazo.</p>
+    <p class="credencial" data-n="cedula"></p>
+  </div>
+</div></section>
+
+<section class="seccion"><div class="wrap">
+  <h2>Lo que dicen mis pacientes</h2>
+  <div data-r="resenas" class="mt"></div>
+  <p class="nota-chica">Reseñas de ejemplo.</p>
+</div></section>
+
+<section class="agenda seccion" id="agenda"><div class="wrap">
+  <h2>Agenda tu cita</h2>
+  <p class="intro">Elige un día, una hora y déjame tus datos.</p>
+  <div data-r="agenda"></div>
+</div></section>
+
+<section class="faq seccion"><div class="wrap grid2">
+  <h2>Preguntas frecuentes</h2>
+  <div data-r="faq"></div>
+</div></section>
+
+<section class="visita seccion" id="visita"><div class="wrap grid2">
+  <div><h2>Dónde y cuándo</h2><div data-r="contacto"></div><div data-r="redes" class="redes-visita"></div></div>
+  <dl data-r="horario"></dl>
+</div></section>
+</main>
+
+<script>window.EJEMPLO={giro:"nutricion",n:1,total:3};window.NEGOCIO={nombre:"Brote",profesional:"Lic. Ana Lucía Rivas"};</script>
+<script src="../../assets/giros.js"></script>
+<script src="../../assets/core.js"></script>
+<script>
+(function(){
+  const NOTAS={verduras:["Verduras y frutas","Entre más colores en tu plato, mejor. Mercado, tianguis o la huerta de la abuela."],cereales:["Cereales y tubérculos","Tortilla, avena, arroz, papa o camote. Dan la energía del día."],proteina:["Leguminosas y alimentos de origen animal","Frijol, lenteja, huevo, pollo o pescado. Lo que construye y repara."]};
+  const nota=document.getElementById("plato-nota");
+  document.querySelectorAll(".sector").forEach(g=>{
+    const show=()=>{const [t,d]=NOTAS[g.dataset.g];nota.innerHTML="<strong>"+t+"</strong><span>"+d+"</span>";};
+    g.addEventListener("mouseenter",show);g.addEventListener("focus",show);
+    g.addEventListener("click",()=>{document.querySelectorAll(".sector").forEach(x=>x.classList.remove("on"));g.classList.add("on");show();});
+    g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();g.click();}});
+  });
+})();
+</script>
+</body>
+</html>
